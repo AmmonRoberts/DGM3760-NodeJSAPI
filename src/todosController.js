@@ -25,14 +25,15 @@ router.post('/', (req, res) => {
     let newId = Math.floor(Math.random() * 1000000);
     let newCategory = req.body.category
     let newTaskName = req.body.name
-    todos.push({
+    newTodo = {
         id: newId,
         taskName: newTaskName,
         completed: false,
         category: newCategory
-    })
-    console.log(todos)
-    res.sendStatus(200);
+    }
+
+    todos.push(newTodo)
+    res.send(newTodo);
 });
 
 router.put('/:category', (req, res) => {
